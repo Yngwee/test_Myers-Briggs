@@ -32,7 +32,10 @@ if __name__ == '__main__':
     with open('questions.txt', encoding='utf-8') as file:  # Считывание файла с вопросами построчно
         for i, line in enumerate(file):
             print(line.strip())
-            answer = input('Введите ответ - а или b: ').strip()
+            answer = input('Введите ответ "а" или "b": ').strip()
+            while answer != 'a' and answer != 'b':  # Проверка на правильность ввода
+                answer = input('Неверный ввод. Пожалуйста, введите "a" или "b": ')
+
             if answer == 'a':
                 match i % 7:  # В зависимости от строки с вопросом, наращиваем определенный параметр
                     case 0:
