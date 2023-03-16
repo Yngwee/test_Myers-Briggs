@@ -1,5 +1,4 @@
 import json
-import markdown
 
 
 class User:
@@ -13,7 +12,7 @@ class User:
         self.email = email
 
     def __str__(self):
-        return [self.name, [item for item in self.user_score.values()], self.user_nnnn]
+        return [self.name, self.email, [item for item in self.user_score.values()], self.user_nnnn]
 
 
 if __name__ == '__main__':
@@ -37,8 +36,8 @@ if __name__ == '__main__':
         for i, line in enumerate(file):
             print(line.strip())
             answer = input('Введите ответ "а" или "b": ').strip()
-            # while answer != 'a' and answer != 'b':  # Проверка на правильность ввода
-            #     answer = input('Неверный ввод. Пожалуйста, введите "a" или "b": ')
+            while answer != 'a' and answer != 'b':  # Проверка на правильность ввода
+                answer = input('Неверный ввод. Пожалуйста, введите "a" или "b": ')
 
             if answer == 'a':
                 match i % 7:  # В зависимости от строки с вопросом, наращиваем определенный параметр
@@ -77,8 +76,3 @@ if __name__ == '__main__':
           '(хотя логистика бы должна была быть его наименее квалифицированной ролью).\n')
 
     print('Спасибо! Тестирование закончилось.')
-
-    with open(f'{user.name}_ESTF.md', 'w', encoding='utf-8') as f:
-        f.write(str(user.__str__()))
-
-
